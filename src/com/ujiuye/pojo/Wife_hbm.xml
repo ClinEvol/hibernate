@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.ujiuye.pojo.Wife" table="wife">
+        <id name="id" >
+            <generator class="increment"/>
+        </id>
+        <property name="name" column="name" length="20" />
+        <one-to-one name="husband" class="com.ujiuye.pojo.Husband"></one-to-one>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.ujiuye.pojo.Student" table="`student`">
+        <id name="sid" >
+            <generator class="increment"/>
+        </id>
+        <property name="sname" column="sname" />
+        <set name="courses" table="`stu_cou`">
+            <key column="sid"></key>
+            <many-to-many class="com.ujiuye.pojo.Course" column="cid"></many-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>

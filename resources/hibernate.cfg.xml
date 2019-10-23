@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+         方言：hibernate屏蔽底层数据库的差异
+          (mysql  oracle db2 sqlserver) 每一种数据库提供一个工具类
+         -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--  数据库连接条件 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db0722</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <!--  辅助内容 -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <!--
+            hibernate可以根据类和描述文件自动建表
+            create:每一次运行都会覆盖原表中的内容
+            update:保留原表中的内容
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- 将我们的对象和表的映射文件加载到主配置文件中 -->
+        <mapping resource="com/ujiuye/pojo/Dog_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Husband_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Wife_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Person_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Order_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Student_hbm.xml"/>
+        <mapping resource="com/ujiuye/pojo/Course_hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

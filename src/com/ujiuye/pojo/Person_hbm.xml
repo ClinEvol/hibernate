@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.ujiuye.pojo.Person" table="`person`">
+        <id name="Id" >
+            <generator class="increment"/>
+        </id>
+        <property name="Name" column="Name" />
+        <property name="Bir" column="Bir"  />
+        <property name="Address" column="Address"  />
+        <property name="age" column="age"  />
+
+        <set name="orders">
+            <key column="pid"></key>
+            <one-to-many class="com.ujiuye.pojo.Order"></one-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>
